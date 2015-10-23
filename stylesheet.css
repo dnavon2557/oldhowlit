@@ -59,7 +59,7 @@ input[type="range"].slider::-webkit-slider-thumb {
   cursor: pointer;
 }
 input[type="range"].slider:focus::-webkit-slider-runnable-track {
-  background: #545a5a;
+  /*background: #545a5a;*/
 }
 input[type="range"].slider::-moz-range-track {
   width: 100%;
