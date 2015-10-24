@@ -8,15 +8,9 @@
 	//default values for song metrics
 	//these will be assigned when playlist is requested based on range number
 	var rangeNumber = 0;
-	var litness = 0;
+	var litness;
 	var numSongs = 100;
 	var min_hotttnessss = 0.5;
-	var min_danceability = 0;
-	var max_danceability = 100;
-	var min_energy = 0;
-	var max_energy = 100;
-
-
 	//updates litNumber on change in slider
     function updateRangeNumber () {
    			rangeNumber = document.getElementByClassName('slider').value;
@@ -32,6 +26,9 @@
 			litness.max_dancabilty = rangeNumber/100 + 0.1
 			litness.max_energy = rangeNumber/100 +0.1
 
+		} else if (rangeNumber >= 90) {
+			litness.max_dancabilty = 1;
+			litness.max_energy = 1;
 		}
 
 	}
