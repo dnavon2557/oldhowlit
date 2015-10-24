@@ -7,27 +7,29 @@
 
 	//default values for song metrics
 	//these will be assigned when playlist is requested based on range number
-	var rangeNumber = 0;
-	var litness;
-	var numSongs = 100;
-	var min_hotttnessss = 0.5;
+	var rangeNumber = 50;
+	var litness = new Object;
+	var numSongs = 1;
+	var min_hotttnesss = 0.5;
 	//updates litNumber on change in slider
     function updateRangeNumber () {
-   			rangeNumber = document.getElementByClassName('slider').value;
- 	    	console.log ('rangeNumber');
+    		var slider = document.getElementById('slider');
+    		console.log(slider);
+   			rangeNumber = slider.value;
+ 	    	console.log (rangeNumber);
    	}
 
 	//
 	function findLitNumber () {
 		//TODO calaculte numbers for song metrics
-		litness.min_dancablity = rangeNumber/100;
+		litness.min_danceability = rangeNumber/100;
 		litness.min_energy = rangeNumber/100;
 		if (rangeNumber < 90) {
-			litness.max_dancabilty = rangeNumber/100 + 0.1
+			litness.max_danceability = rangeNumber/100 + 0.1
 			litness.max_energy = rangeNumber/100 +0.1
 
 		} else if (rangeNumber >= 90) {
-			litness.max_dancabilty = 1;
+			litness.max_danceability = 1;
 			litness.max_energy = 1;
 		}
 
@@ -36,27 +38,50 @@
 	var items = [];
 	//
 	function play () {
-		findLitNumber;
-
+		findLitNumber();
 		//search for 100 songs
 		//create playlist 
 		//open spotify
 
-		Query.ajaxSettings.traditional = true; 
-		var apiKey = ZSB4FV0A9YETOVCG1;
+		
+		var apiKey = 'ZSB4FV0A9YETOVCG1';
     	var url = 'http://developer.echonest.com/api/v4/song/search?api_key=' + apiKey + 
-    	          '&format=json&results=' + numSongs + '&min_danceability=' + min_danceability +
-    	          '&max_danceability=' + max_danceability + '&min_energy=' + min_energy + 
-    	          '&max_energy=' + max_energy + '&min_hotttnesss=' + min_hotttnessss;
-    	          
-    	var response = new XMLHttpRequest();
-    	response.open("GET", url, false);          
-    	var parsedJSON = response.parse(response);
+    	          '&format=json&results=' + numSongs + '&min_danceability=' + litness.min_danceability +
+    	          '&max_danceability=' + litness.max_danceability + '&min_energy=' + litness.min_energy + 
+    	          '&max_energy=' + litness.max_energy + '&song_min_hotttnesss=' + min_hotttnesss+'&callback=?';
+     	
+    		$.ajax({type: "GET",
+            crossDomain : true,
+            url: url,
+            contentType: "application/json",
+            success: function(data) {
+            	alert(data);
+            }
+    		}); 
+function myJsonMethod(response){
+  console.log (response);
+}
+}
+    	/*
+		
+    	var response = new XMLHttpRequest({mozSystem: true});
+    	response.onreadystatechange = function (){
+    		console.log('readyState changing and shit');
+    		console.log(response.readyState);
+    		if ( response.readyState == 4) {
+    			console.log('readyState is 4 and shit');
+    			console.log(response.responseText);
+    		}
+    	}
+    	response.open("GET", url, true);       
+    	response.send();   
+    	//var parsedJSON = JSON.parse(response);*/
+
 
     	//ignore, for reference later          
     	/*           
     	var args = { 
-            format:'json', 
+            format:'jsonp', 
             api_key: apiKey,
             name: artist,
             results: 100, 
@@ -80,5 +105,6 @@
                 error("Trouble getting blog posts for " + artist);
             }
         );
-	*/		
+		
 	}
+*/	

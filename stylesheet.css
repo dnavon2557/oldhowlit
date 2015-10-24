@@ -18,7 +18,7 @@ h1 {
 
 }
 @media (max-width: 336px) {
-	input[type="range"].slider {
+	input[type="range"]#slider {
 		padding-top: 16.5em !important;
 	}
 }
@@ -29,7 +29,7 @@ div#howlit {
 div#litometer {
 	
 }
-input[type="range"].slider {
+input[type="range"]#slider {
 	display: block;
 	position: fixed;
 	padding-top: 8.25em;
@@ -43,10 +43,10 @@ input[type="range"].slider {
   margin: 0px auto;
   background: none;
 }
-input[type="range"].slider:focus {
+input[type="range"]#slider:focus {
   outline: none;
 }
-input[type="range"].slider::-webkit-slider-runnable-track {
+input[type="range"]#slider::-webkit-slider-runnable-track {
   width: 100%;
   height: 0.5em;
   cursor: pointer;
@@ -54,7 +54,7 @@ input[type="range"].slider::-webkit-slider-runnable-track {
   border-radius: 0.5em;
   border: 0.6px solid #a8a8a8;
 }
-input[type="range"].slider::-webkit-slider-thumb {
+input[type="range"]#slider::-webkit-slider-thumb {
   margin-top: -2.25em;
   height: 4.5em;
   width: 4.5em;
@@ -65,10 +65,10 @@ input[type="range"].slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   cursor: pointer;
 }
-input[type="range"].slider:focus::-webkit-slider-runnable-track {
+input[type="range"]#slider:focus::-webkit-slider-runnable-track {
   background: #FFFFFF;
 }
-input[type="range"].slider::-moz-range-track {
+input[type="range"]#slider::-moz-range-track {
   width: 100%;
   height: 0.5em;
   cursor: pointer;
@@ -76,7 +76,7 @@ input[type="range"].slider::-moz-range-track {
   border-radius: 0.5em;
   border: 0.6px solid #a8a8a8;
 }
-input[type="range"].slider::-moz-range-thumb {
+input[type="range"]#slider::-moz-range-thumb {
   height: 4.5em;
   width: 4.5em;
   padding-bottom: 1em;
@@ -87,7 +87,7 @@ input[type="range"].slider::-moz-range-thumb {
   cursor: pointer;
 }
 
-input[type="range"].slider::-ms-track {
+input[type="range"]#slider::-ms-track {
     width: 100%;
   height: 0.5em;
   cursor: pointer;
@@ -96,7 +96,7 @@ input[type="range"].slider::-ms-track {
   border: 0.6px solid #a8a8a8;
 }
 
-input[type="range"].slider::-ms-thumb {
+input[type="range"]#slider::-ms-thumb {
     height: 4.5em;
   width: 4.5em;
   padding-bottom: 1em;
