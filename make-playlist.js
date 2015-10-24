@@ -98,7 +98,18 @@
 		var url = 'https://api.spotify.com/v1/users/' + currentUserId + '/playlists?' 
 				   + 'name=' + playlistName + '&public=true';
 
-		var newPlaylist; //TODO get request to make new playlist and save as variable 
+		var newPlaylist; //TODO get request to make new playlist and save as variable
+
+		$.ajax({type: "POST",
+			url: url,
+			data: data,   //?????????????????????????
+			success: function (data) {
+				alert (data);
+				newPlaylist = data; //change to fill with actual data
+			},
+			dataType: JSON
+		});
+
 		var playlistID; //TODO
 		//make array of songs to add to playlist. songs in uri form 
 		var songsToAdd = pullSongs (data); //TODO add function to pull parsed data
@@ -118,22 +129,37 @@
 			url += songsToAdd[i]['id'];
 		}
 		//TODO add get request to add songs to playlist using url
+		$.ajax({type: "POST",
+			url: url,
+			data: data,   //?????????????????????????
+			success: function (data) {
+				alert (data);
+			}
+		});
 	}
 	/*
 	 * PURPOSE: gets spotify user information of client. 
 	 *  RETURN: currentUserInfo - JSON data of user 
 	 */
 	function getUserInfo () {
-		var apiKeySpotify = "ea7eb5c1d5514aafb06d0c2494fc1fc8"
-		var currentUserInfo = new XMLHttpRequest();
+		var apiKeySpotify = "a0cdedaf4c0d4e3bb8e3025b35f8da41"
+		var currentUserInfo;
+
 		var url = 'https://api.spotify.com/v1/me?client_id=' + apiKeySpotify;
-		currentUserInfo.open("GET", url)
 
-		//TODO 
+		//jquery to get current user info
+		$.ajax({type: "GET",
+            crossDomain : true,
+            url: url,
+            contentType: "application/json",
+            success: function(data) {
+            	alert(data);
+            	currentUserInfo = data;
+            },
+            dataType: JSON
+    	}); 
 
-		callbackFunction;
-
-		currentUserInfo.send();		
+		callbackFunction;	
 	
 		return currentUserInfo;
 	}
