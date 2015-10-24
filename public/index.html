@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>How Lit</title>
+
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="make-playlist.js"> </script>
+		
+	</head>
+	<body>
+		<div id="howlit">
+			<h1>How Lit?</h1>
+		</div>
+		<div id = "litometer"> 
+			<input type = "range" id="slider" max = "100" min = "0" onmouseup="updateRangeNumber()">
+		</div>
+		<div id="play">
+			<p class = "btn" onclick="play()">Turn up</p>
+		</div>
+
+	</body>
+</html>
