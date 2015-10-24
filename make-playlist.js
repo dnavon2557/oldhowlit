@@ -11,6 +11,7 @@
 	var litness = new Object;
 	var numSongs = 1;
 	var min_hotttnesss = 0.5;
+
 	//updates litNumber on change in slider
     function updateRangeNumber () {
     		var slider = document.getElementById('slider');
@@ -19,7 +20,10 @@
  	    	console.log (rangeNumber);
    	}
 
-	//
+	/*
+	 * PURPOSE: finds litness - uses danceability and energy. Litness is
+	 *          used by echo nest to create list of songs
+	 */
 	function findLitNumber () {
 		//TODO calaculte numbers for song metrics
 		litness.min_danceability = rangeNumber/100;
@@ -36,7 +40,11 @@
 	}
 
 	var items = [];
-	//
+
+	/*
+	 * PURPOSE: main function used in howlit. Finds litness, grabs list of songs 
+	 *          using echo nest api, and creates spotify playlist for client with songs found
+	 */
 	function play () {
 		findLitNumber();
 		//search for 100 songs
@@ -59,9 +67,10 @@
             	alert(data);
             }
     		}); 
-function myJsonMethod(response){
-  console.log (response);
-}
+
+	function myJsonMethod(response){
+  		console.log (response);
+	}
 }
     	/*
 		
@@ -79,48 +88,11 @@ function myJsonMethod(response){
     	//var parsedJSON = JSON.parse(response);*/
 
 
-    	//ignore, for reference later          
-    	/*           
-    	var args = { 
-            format:'jsonp', 
-            api_key: apiKey,
-            name: artist,
-            results: 100, 
-   		 };
-    	info("Fetching images for " + artist);
-    	$.getJSON(url, args,
-            function(data) {
-                $("#results").empty();
-                if (! ('images' in data.response)) {
-                    error("Can't find any images for " + artist);
-                } else {
-                    $("#results").show();
-                    $.each(data.response.images, function(index, item) {
-                        var div = formatItem(index, item);
-                        $("#results").append(div);
-                    });
-                    info("Showing " + data.response.images.length + " of " + data.response.total + " images for " + artist);
-                }
-            },
-            function() {
-                error("Trouble getting blog posts for " + artist);
-            }
-        );
-		
-	}
-*/	
-	
-	//get the current spotify users id 
-
-	
-
-	
-
 	/*
 	 * PURPOSE: creates a new spotify playlist for client. List of songs from echo nest
 	 *          will be added 
 	 */
-	function createSpotifyPlaylist (parsedJSON) {
+	function createSpotifyPlaylist (data) {
 		var currentUserId = getUserInfo(['id']);
 		var playlistName = "foobar"
 		var url = 'https://api.spotify.com/v1/users/' + currentUserId + '/playlists?' 
@@ -129,7 +101,7 @@ function myJsonMethod(response){
 		var newPlaylist; //TODO get request to make new playlist and save as variable 
 		var playlistID; //TODO
 		//make array of songs to add to playlist. songs in uri form 
-		var songsToAdd = pullSongs (parsedJSON); //TODO add function to pull parsed data
+		var songsToAdd = pullSongs (data); //TODO add function to pull parsed data
 		//loop through JSON data from 
 
 		addSongs (songsToAdd, currentUserId, playlistID)
@@ -157,6 +129,8 @@ function myJsonMethod(response){
 		var url = 'https://api.spotify.com/v1/me?client_id=' + apiKeySpotify;
 		currentUserInfo.open("GET", url)
 
+		//TODO 
+
 		callbackFunction;
 
 		currentUserInfo.send();		
@@ -175,10 +149,13 @@ function myJsonMethod(response){
 	 * PURPOSE: Adds ids of songs found in JSON response to songs array. 
 	 *  RETURN: songsArray - array of song ids s
 	 */
-	function pullSongs (parsedJSON) {
+	function pullSongs (data) {
 		var songsArray = [];
-		for (i = 0; i < parsedJSON.length; i++) {
-			songsArray[i] = parsedJSON[i]['id'];
+		for (i = 0; i < data.length; i++) {
+			songsArray[i] = data[i]['id'];
 		}
 		return songsArray;
 	}
+
+//TODOs for all
+//error handling, pop up windows with errors?
