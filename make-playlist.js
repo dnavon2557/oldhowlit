@@ -7,21 +7,21 @@
 
 	//default values
 	var rangeNumber = 0;
-	var litNumber = 0;
-	window.alert (document.getElementbyID(range));
+	var litness = 0;
 
 	//updates litNumber on change in slider
     function updateRangeNumber () {
-   		$('input[type="range"]').on('mousedown input', function() {
- 	   	    rangeNumber = this.value;
+   			rangeNumber = document.getElementByClassName('slider').value;
  	    	console.log ('rangeNumber');
-		});
    	}
 
 	//
 	function findLitNumber () {
-		//TODO calaculta numbers for song metrics
+		//TODO calaculte numbers for song metrics
 	}
 
-	
+	function play (litness) {
+
+	}
+
 //});
