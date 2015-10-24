@@ -9,7 +9,7 @@
 	//these will be assigned when playlist is requested based on range number
 	var rangeNumber = 50;
 	var litness = new Object;
-	var numSongs = 1;
+	var numSongs = 100;
 	var min_hotttnesss = 0.5;
 	//updates litNumber on change in slider
     function updateRangeNumber () {
@@ -56,59 +56,15 @@
             url: url,
             contentType: "application/json",
             success: function(data) {
-            	alert(data);
+            	console.log(data);
+            	createSpotifyPlaylist(data);
             }
     		}); 
-function myJsonMethod(response){
-  console.log (response);
-}
-}
-    	/*
-		
-    	var response = new XMLHttpRequest({mozSystem: true});
-    	response.onreadystatechange = function (){
-    		console.log('readyState changing and shit');
-    		console.log(response.readyState);
-    		if ( response.readyState == 4) {
-    			console.log('readyState is 4 and shit');
-    			console.log(response.responseText);
-    		}
-    	}
-    	response.open("GET", url, true);       
-    	response.send();   
-    	//var parsedJSON = JSON.parse(response);*/
-
-
-    	//ignore, for reference later          
-    	/*           
-    	var args = { 
-            format:'jsonp', 
-            api_key: apiKey,
-            name: artist,
-            results: 100, 
-   		 };
-    	info("Fetching images for " + artist);
-    	$.getJSON(url, args,
-            function(data) {
-                $("#results").empty();
-                if (! ('images' in data.response)) {
-                    error("Can't find any images for " + artist);
-                } else {
-                    $("#results").show();
-                    $.each(data.response.images, function(index, item) {
-                        var div = formatItem(index, item);
-                        $("#results").append(div);
-                    });
-                    info("Showing " + data.response.images.length + " of " + data.response.total + " images for " + artist);
-                }
-            },
-            function() {
-                error("Trouble getting blog posts for " + artist);
-            }
-        );
-		
+		function myJsonMethod(response){
+  			console.log (response);
+		}
 	}
-*/	
+    		
 	
 	//get the current spotify users id 
 
