@@ -60,7 +60,7 @@ input[type="range"]#slider::-webkit-slider-thumb {
   width: 4.5em;
   border: none;
   opacity: 1;
-  background: transparent url("fire-small.png") no-repeat scroll 0% 0% 
+  background: transparent url("media/fire-small.png") no-repeat scroll 0% 0% 
   			/contain content-box; 
   -webkit-appearance: none;
   cursor: pointer;
@@ -82,7 +82,7 @@ input[type="range"]#slider::-moz-range-thumb {
   padding-bottom: 1em;
     border: none;
     opacity: 1;
-  background: transparent url("fire-small.png") no-repeat scroll 0% 0% 
+  background: transparent url("media/fire-small.png") no-repeat scroll 0% 0% 
   			/contain content-box;
   cursor: pointer;
 }
@@ -102,7 +102,7 @@ input[type="range"]#slider::-ms-thumb {
   padding-bottom: 1em;
     border: none;
     opacity: 1;
-  background: transparent url("fire-small.png") no-repeat scroll 0% 0% 
+  background: transparent url("media/fire-small.png") no-repeat scroll 0% 0% 
   			/contain content-box;
   cursor: pointer;
 }
