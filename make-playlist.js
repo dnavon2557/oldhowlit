@@ -5,11 +5,6 @@
 //searches for songs based on these values and creates playlist
 //playlist plays through spotify. in window? in spotify?
 
-<<<<<<< HEAD
-	//default values
-	var rangeNumber;
-	var litness;
-=======
 	//default values for song metrics
 	//these will be assigned when playlist is requested based on range number
 	var rangeNumber = 0;
@@ -20,7 +15,7 @@
 	var max_danceability = 100;
 	var min_energy = 0;
 	var max_energy = 100;
->>>>>>> ba30c8a48848067c3774ce7604f7323448f246a5
+
 
 	//updates litNumber on change in slider
     function updateRangeNumber () {
