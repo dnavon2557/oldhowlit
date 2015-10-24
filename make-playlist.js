@@ -49,9 +49,9 @@
     	          '&max_danceability=' + max_danceability + '&min_energy=' + min_energy + 
     	          '&max_energy=' + max_energy + '&min_hotttnesss=' + min_hotttnessss;
     	          
-    	var response = GET url; 
-    	var response = $.getJSON(url)
-    	var parsedJSON = JSON.parse(response);
+    	var response = new XMLHttpRequest();
+    	response.open("GET", url, false);          
+    	var parsedJSON = response.parse(response);
 
     	//ignore, for reference later          
     	/*           
