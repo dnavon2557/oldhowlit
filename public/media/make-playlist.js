@@ -11,6 +11,7 @@
 	var litness = new Object;
 	var numSongs = 100;
 	var min_hotttnesss = 0.5;
+	var songList = new Array;
 
 	//updates litNumber on change in slider
     function updateRangeNumber () {
@@ -64,14 +65,25 @@
             url: url,
             contentType: "application/json",
             success: function(data) {
-            	console.log(data);
-            	createSpotifyPlaylist(data);
-            }
+            	data = data['response'];
+            	data = data['songs'];
+
+            	for(var i = 0; i < data.length; i++) {
+            		//console.log(data[i]['title']);
+            		songList[i] = data[i]['title'] + ' - ' + data[i]['artist_name']; 
+            		console.log(songList[i]);
+            		playlist = document.getElementById('playlist');
+            		playlist.innerHTML += '<p class = "song">' + songList[i] + '</p>'
+            	}
+
+            		//console.log(data[0]);
+            		//console.log(data['response'])
+            		//console.log(data[songs]);
+            		//createSpotifyPlaylist(data);
+            	}
+    
     		}); 
 		function myJsonMethod(response){
-			for (i = 0; i < 100; i++) {
-				console.log(response[i]);
-			}
   			//console.log (response);
 		}
 	}

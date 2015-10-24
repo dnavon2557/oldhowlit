@@ -134,3 +134,25 @@ div #play {
 .btn:hover {
   cursor: pointer;
 }
+
+#playlist {
+  position: fixed;
+  height: 50%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  overflow: scroll;
+
+}
+#playlist p {
+  background: #FF4040;
+  padding: 2% 5%;
+  border-radius: 10px;
+  z-index: 2;
+  color: #FFCC00;
+  font-size: 1em
+
+}
