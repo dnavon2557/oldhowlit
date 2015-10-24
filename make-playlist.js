@@ -21,7 +21,6 @@
 	var min_energy = 0;
 	var max_energy = 100;
 >>>>>>> ba30c8a48848067c3774ce7604f7323448f246a5
-
 	//updates litNumber on change in slider
     function updateRangeNumber () {
    			rangeNumber = document.getElementByClassName('slider').value;
