@@ -15,9 +15,9 @@
 	//updates litNumber on change in slider
     function updateRangeNumber () {
     		var slider = document.getElementById('slider');
-    		console.log(slider);
+    		//console.log(slider);
    			rangeNumber = slider.value;
- 	    	console.log (rangeNumber);
+ 	    	//console.log (rangeNumber);
    	}
 
 	/*
@@ -69,7 +69,10 @@
             }
     		}); 
 		function myJsonMethod(response){
-  			console.log (response);
+			for (i = 0; i < 100; i++) {
+				console.log(response[i]);
+			}
+  			//console.log (response);
 		}
 	}
     		
