@@ -43,6 +43,7 @@
 		//create playlist 
 		//open spotify
 
+
 		
 		var apiKey = 'ZSB4FV0A9YETOVCG1';
     	var url = 'http://developer.echonest.com/api/v4/song/search?api_key=' + apiKey + 
@@ -108,3 +109,76 @@ function myJsonMethod(response){
 		
 	}
 */	
+	
+	//get the current spotify users id 
+
+	
+
+	}
+
+	/*
+	 * PURPOSE: creates a new spotify playlist for client. List of songs from echo nest
+	 *          will be added 
+	 */
+	function createSpotifyPlaylist (parsedJSON) {
+		var currentUserId = getUserInfo(['id']);
+		var playlistName = "foobar"
+		var url = 'https://api.spotify.com/v1/users/' + currentUserId + '/playlists?' 
+				   + 'name=' + playlistName + '&public=true';
+
+		var newPlaylist; //TODO get request to make new playlist and save as variable 
+		var playlistID; //TODO
+		//make array of songs to add to playlist. songs in uri form 
+		var songsToAdd = pullSongs (parsedJSON); //TODO add function to pull parsed data
+		//loop through JSON data from 
+
+		addSongs (songsToAdd, currentUserId, playlistID)
+	}
+	
+	/*
+	 * PURPOSE: adds songs to specified playlist using array of song ids
+	 */
+	function addSongs (songsToAdd, currentUserId, playlistID) {
+		var url = 'https://api.spotify.com/v1/users/' + currentUserId + '/playlists' + 
+		          playlistID + '/tracks?uris=';
+		for (i = 0; i < songsToAdd.length; i++) {
+			if (i != 0) url += ',';
+			url += songsToAdd[i]['id'];
+		}
+		//TODO add get request to add songs to playlist using url
+	}
+	/*
+	 * PURPOSE: gets spotify user information of client. 
+	 *  RETURN: currentUserInfo - JSON data of user 
+	 */
+	function getUserInfo () {
+		var apiKeySpotify = "ea7eb5c1d5514aafb06d0c2494fc1fc8"
+		var currentUserInfo = new XMLHttpRequest();
+		var url = 'https://api.spotify.com/v1/me?client_id=' + apiKeySpotify;
+		currentUserInfo.open("GET", url)
+
+		callbackFunction;
+
+		currentUserInfo.send();		
+	
+		return currentUserInfo;
+	}
+
+	function callbackFunction (request) {
+			if (request.readyState == 4 && request.status == 200) {
+					alert ("Got Spotify User data back");
+
+			}
+	}
+
+	/*
+	 * PURPOSE: Adds ids of songs found in JSON response to songs array. 
+	 *  RETURN: songsArray - array of song ids s
+	 */
+	function pullSongs (parsedJSON) {
+		var songsArray = [];
+		for (i = 0; i < parsedJSON.length; i++) {
+			songsArray[i] = parsedJSON[i]['id'];
+		}
+		return songsArray;
+	}
