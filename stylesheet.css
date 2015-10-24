@@ -1,3 +1,4 @@
+
 body {
 	padding: 0px;
 	margin: 0px;
@@ -10,8 +11,11 @@ h1 {
 	background: #FF4040;
 	color: #FFCC00;
 	margin: auto;
+  padding: 1%;
+  font-family: "Helvetica", Verdana, Arial, sans-serif;
 	font-size: 5em;
 	text-shadow: 5px 5px #FF9900;
+
 }
 @media (max-width: 336px) {
 	input[type="range"].slider {
@@ -24,23 +28,26 @@ div#howlit {
 }
 div#litometer {
 	
-
 }
 input[type="range"].slider {
 	display: block;
 	position: fixed;
 	padding-top: 8.25em;
 	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   -webkit-appearance: none;
   width: 70%;
+  margin: 0px auto;
+  background: none;
 }
 input[type="range"].slider:focus {
   outline: none;
 }
 input[type="range"].slider::-webkit-slider-runnable-track {
-   width: 100%;
+  width: 100%;
   height: 0.5em;
   cursor: pointer;
   background: #FFFFFF;
@@ -48,18 +55,18 @@ input[type="range"].slider::-webkit-slider-runnable-track {
   border: 0.6px solid #a8a8a8;
 }
 input[type="range"].slider::-webkit-slider-thumb {
-    height: 4.5em;
+  margin-top: -2.25em;
+  height: 4.5em;
   width: 4.5em;
-  padding-bottom: 1em;
-    border: none;
-    opacity: 1;
+  border: none;
+  opacity: 1;
   background: transparent url("fire-small.png") no-repeat scroll 0% 0% 
-  			/contain content-box;
+  			/contain content-box; 
   -webkit-appearance: none;
   cursor: pointer;
 }
 input[type="range"].slider:focus::-webkit-slider-runnable-track {
-  /*background: #545a5a;*/
+  background: #FFFFFF;
 }
 input[type="range"].slider::-moz-range-track {
   width: 100%;
@@ -97,5 +104,33 @@ input[type="range"].slider::-ms-thumb {
     opacity: 1;
   background: transparent url("fire-small.png") no-repeat scroll 0% 0% 
   			/contain content-box;
+  cursor: pointer;
+}
+div #play {
+  position: relative; 
+}
+.btn {
+  position: fixed;
+  padding: none;
+  margin: none;
+  top: 75%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  width: auto;
+  padding: 0.5em;
+  background: #81b71a;
+  border: solid 1px #a8a8a8;
+  border-radius: 30px;
+  font-size: 2em;
+  font-family: "Helvetica", Verdana, Arial, sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #a8a8a8;
+}
+
+.btn:hover {
   cursor: pointer;
 }
