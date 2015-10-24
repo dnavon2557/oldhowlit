@@ -36,8 +36,9 @@
 
 	}
 
+	var items = [];
 	//
-	function play (litness) {
+	function play () {
 		findLitNumber;
 
 		//search for 100 songs
@@ -49,8 +50,11 @@
     	var url = 'http://developer.echonest.com/api/v4/song/search?api_key=' + apiKey + 
     	          '&format=json&results=' + numSongs + '&min_danceability=' + min_danceability +
     	          '&max_danceability=' + max_danceability + '&min_energy=' + min_energy + 
-    	          '&max_energy=' = max_energy + '&min_hotttnesss=' + min_hotttnessss;
-    	          + ;
+    	          '&max_energy=' + max_energy + '&min_hotttnesss=' + min_hotttnessss;
+    	          
+    	var response = GET url; 
+    	var response = $.getJSON(url)
+    	var parsedJSON = JSON.parse(response);
 
     	//ignore, for reference later          
     	/*           
