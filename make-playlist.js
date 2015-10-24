@@ -6,8 +6,8 @@
 //playlist plays through spotify. in window? in spotify?
 
 	//default values
-	var rangeNumber = 0;
-	var litness = 0;
+	var rangeNumber;
+	var litness;
 
 	//updates litNumber on change in slider
     function updateRangeNumber () {
@@ -18,6 +18,14 @@
 	//
 	function findLitNumber () {
 		//TODO calaculte numbers for song metrics
+		litness.min_dancablity = rangeNumber/100;
+		litness.min_energy = rangeNumber/100;
+		if (rangeNumber < 90) {
+			litness.max_dancabilty = rangeNumber/100 + 0.1
+			litness.max_energy = rangeNumber/100 +0.1
+
+		}
+
 	}
 
 	function play (litness) {
