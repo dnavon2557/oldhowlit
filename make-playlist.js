@@ -114,7 +114,7 @@ function myJsonMethod(response){
 
 	
 
-	}
+	
 
 	/*
 	 * PURPOSE: creates a new spotify playlist for client. List of songs from echo nest
