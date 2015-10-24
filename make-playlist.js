@@ -9,7 +9,7 @@
 	//these will be assigned when playlist is requested based on range number
 	var rangeNumber = 50;
 	var litness = new Object;
-	var numSongs = 1;
+	var numSongs = 100;
 	var min_hotttnesss = 0.5;
 
 	//updates litNumber on change in slider
@@ -64,28 +64,21 @@
             url: url,
             contentType: "application/json",
             success: function(data) {
-            	alert(data);
+            	console.log(data);
+            	createSpotifyPlaylist(data);
             }
     		}); 
-
-	function myJsonMethod(response){
-  		console.log (response);
+		function myJsonMethod(response){
+  			console.log (response);
+		}
 	}
-}
-    	/*
-		
-    	var response = new XMLHttpRequest({mozSystem: true});
-    	response.onreadystatechange = function (){
-    		console.log('readyState changing and shit');
-    		console.log(response.readyState);
-    		if ( response.readyState == 4) {
-    			console.log('readyState is 4 and shit');
-    			console.log(response.responseText);
-    		}
-    	}
-    	response.open("GET", url, true);       
-    	response.send();   
-    	//var parsedJSON = JSON.parse(response);*/
+    		
+	
+	//get the current spotify users id 
+
+	
+
+	
 
 
 	/*
